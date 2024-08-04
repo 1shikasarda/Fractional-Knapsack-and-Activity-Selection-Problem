@@ -1,0 +1,51 @@
+#include<stdio.h> 
+int main() 
+{ 
+     float score[50],time[50],ratio[50],Totalvalue,temp,capacity,amount; 
+     int n,i,j; 
+     printf("Enter the number of subject :"); 
+     scanf("%d",&n); 
+    for (i = 0; i < n; i++) 
+    { 
+        printf("Enter score and time for subject[%d] :\n",i); 
+        scanf("%f %f", &time[i], &score[i]); 
+    } 
+    printf("Enter the capacity of knapsack :\n"); 
+    scanf("%f",&capacity); 
+ 
+     for(i=0;i<n;i++) 
+         ratio[i]=score[i]/time[i]; 
+ 
+    for (i = 0; i < n; i++) 
+      for (j = i + 1; j < n; j++) 
+         if (ratio[i] < ratio[j]) 
+        { 
+            temp = ratio[j]; 
+            ratio[j] = ratio[i]; 
+            ratio[i] = temp; 
+ 
+            temp = time[j]; 
+            time[j] = time[i]; 
+           time[i] = temp; 
+ 
+            temp = score[j]; 
+             score[j] =  score[i]; 
+            score[i] = temp; 
+         } 
+ 
+     printf("Knapsack problems using Greedy Algorithm:\n"); 
+     for (i = 0; i < n; i++) 
+     { 
+      if (time[i] > capacity) 
+          break; 
+       else 
+      { 
+          Totalvalue = Totalvalue + score[i]; 
+          capacity = capacity - time[i]; 
+       } 
+     } 
+       if (i < n) 
+       Totalvalue = Totalvalue + (ratio[i]*capacity); 
+     printf("\nThe maximum value is :%f\n",Totalvalue); 
+     return 0; 
+} 
