@@ -9,7 +9,7 @@ allocate their study time to maximize the overall score within
 the available time frame. Implement the solution for this
 problem.
 
-#Activity-Selection-Problem
+# Activity-Selection-Problem
 2. Problem: Consider a scenario where a conference organizer
 wants to schedule multiple talks within a limited time frame,
 with each talk having a start and end time. The organizer
